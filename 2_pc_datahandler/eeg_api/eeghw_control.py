@@ -1,4 +1,4 @@
-from .src_eeg_api import SerialHandler, LSLHandler, H5Handler, McuCommunicationHandler, LivePlotter, LivePlotterChannelConfig, PotiConfig, generate_poti_config, start_live_plotter, extract_channel_data, extract_error_flags, calculate_requierd_resistor_value_for_amplification, calculate_poti_value, calculate_gain
+from src import SerialHandler, LSLHandler, H5Handler, McuCommunicationHandler, LivePlotter, LivePlotterChannelConfig, PotiConfig, generate_poti_config, start_live_plotter, extract_channel_data, extract_error_flags, calculate_requierd_resistor_value_for_amplification, calculate_poti_value, calculate_gain
 from src import EEGDeviceConfig, EEGDeviceMetadata, ErrorRegisterData
 import serial, threading, queue, time
 from datetime import datetime

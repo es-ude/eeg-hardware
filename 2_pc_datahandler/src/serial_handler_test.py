@@ -1,13 +1,13 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import serial
-from eeg_api.src_eeg_api.serial_handler import SerialHandler
+from src.serial_handler import SerialHandler
 
 class TestSerialHandler(unittest.TestCase):
     def setUp(self):
         self._handler = SerialHandler.__new__(SerialHandler)
 
-    @patch ('eeg_api.src_eeg_api.serial_handler.serial.Serial')
+    @patch ('src.serial_handler.serial.Serial')
     def test_get_serial_connection(self, mock_serial):
         mock_serial_instance = MagicMock()
         mock_serial.return_value = mock_serial_instance
@@ -17,7 +17,7 @@ class TestSerialHandler(unittest.TestCase):
         self.assertEqual(result, mock_serial_instance)
     
 
-    @patch ("eeg_api.src_eeg_api.serial_handler.list_ports.comports")
+    @patch ("src.serial_handler.list_ports.comports")
     def test_read_usb_properties(self, mock_comports):
         """Test the __read_usb_properties methode from the SerialHandler class, this method scans the available COM ports and retrieves their USB properties."""    
         mock_port1 = MagicMock()
@@ -42,7 +42,7 @@ class TestSerialHandler(unittest.TestCase):
                            , return_value_usb_properties)
     
 
-    @patch ("eeg_api.src_eeg_api.serial_handler.list_ports.comports")
+    @patch ("src.serial_handler.list_ports.comports")
     def test_scan_com_name(self, mock_comports):
         mock_port1 = MagicMock()
         mock_port1.device = "/dev/ttyUSB0"
@@ -59,8 +59,8 @@ class TestSerialHandler(unittest.TestCase):
         self.assertEqual([mock_port2.device], return_value)
 
 
-    @patch("eeg_api.src_eeg_api.serial_handler.serial.Serial")
-    @patch("eeg_api.src_eeg_api.serial_handler.time.sleep")
+    @patch("src.serial_handler.serial.Serial")
+    @patch("src.serial_handler.time.sleep")
     def test_init_serial_connection(self, mock_sleep, mock_serial_cls):
         self._handler._com_name = "/dev/ttyUSB0"
         self._handler._baudrate = 115200
@@ -80,7 +80,3 @@ class TestSerialHandler(unittest.TestCase):
                                                 rtscts=False,
                                                 dsrdtr=False,
                                                 timeout=self._handler._time_out)
-    
-    #Needs to be implemented
-    def test_clear_serial_buffer(self):
-        pass

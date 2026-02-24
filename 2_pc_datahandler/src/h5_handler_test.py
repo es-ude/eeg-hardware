@@ -1,8 +1,8 @@
 import unittest
 from src import TransientMetadata
 from unittest.mock import patch, MagicMock
-from eeg_api.src_eeg_api.h5_handler import H5Handler
-from src import EEGDeviceConfig
+from src import H5Handler, EEGDeviceConfig, PotiConfig
+
 
 class H5HandlerTest(unittest.TestCase):
     def setUp(self):
@@ -31,6 +31,11 @@ class H5HandlerTest(unittest.TestCase):
             reference_active_shielding=False,
             gain_instrument_amplifier=1
         )
+        self.handler._poti_values = PotiConfig(gain=2, 
+                                               calculated_resistor_value=1000, 
+                                               poti_value=128, 
+                                               actual_resistor_value=1000, 
+                                               actual_gain_value=2) 
 
 
     @patch ("h5py.File")
@@ -45,10 +50,15 @@ class H5HandlerTest(unittest.TestCase):
         mock_group.attrs.__setitem__.assert_any_call("measurement_duration", 671)
         mock_group.attrs.__setitem__.assert_any_call("adc_samplingrate", 672)
         mock_group.attrs.__setitem__.assert_any_call("channel_mask", [1,1,1,1,1,1,1,1])
-        mock_group.attrs.__setitem__.assert_any_call("gain_instrument_amplifier", 1)
         mock_group.create_dataset.assert_any_call('timestamps', shape=(0,), maxshape=(None,), dtype='int64', chunks=True)
         mock_group.create_dataset.assert_any_call('measurements', shape=(0, 8), maxshape=(None, 8), dtype='int32', chunks=True)
         mock_group.create_dataset.assert_any_call('alerts', shape=(0, 8), maxshape=(None, 8), dtype='int8', chunks=True)
+        mock_group.attrs.__setitem__.assert_any_call("gain", 2)
+        mock_group.attrs.__setitem__.assert_any_call("calculated_resistor_value", 1000)
+        mock_group.attrs.__setitem__.assert_any_call("poti_value", 128)
+        mock_group.attrs.__setitem__.assert_any_call("actual_resistor_value", 1000)
+        mock_group.attrs.__setitem__.assert_any_call("actual_gain_value", 2)
+
     
 
     def test_append_data_ad7779(self):

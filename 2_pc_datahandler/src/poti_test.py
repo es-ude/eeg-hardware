@@ -12,10 +12,10 @@ class TestPoti(unittest.TestCase):
 
     def test_calculate_requierd_resistor_value_for_amplification_gain_exactly_one(self):
         gain = 1
-        expected_resistor_value = 130
+        expected_resistor_value = 100e3
 
         actual_resistor_value = calculate_requierd_resistor_value_for_amplification(gain)
-        self.assertAlmostEqual(expected_resistor_value, actual_resistor_value)
+        self.assertEqual(expected_resistor_value, actual_resistor_value)
 
     
     def test_calculate_requierd_resistor_value_for_amplification_gain_too_high(self):
