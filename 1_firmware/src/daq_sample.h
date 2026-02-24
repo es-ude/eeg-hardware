@@ -3,7 +3,7 @@
 
 
 #include "hal/tmr/tmr.h"
-#include "sens/ad7779.h"
+#include "adc/ad7779/ad7779.h"
 
 
 /*! \brief Data structure for DAQ sampling data packet

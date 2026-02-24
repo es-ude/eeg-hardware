@@ -1,5 +1,4 @@
 #include "src/daq_sample.h"
-#include "sens/ad7779.h"
 #include "hal/usb/usb.h"
 
 

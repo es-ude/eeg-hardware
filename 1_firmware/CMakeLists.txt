@@ -45,7 +45,6 @@ add_executable(main
     src/adc_data_processing.c
     src/packet_frames.c
     src/shielding_inputs.c
-    sens/ad7779.c
     src/led_handler.c
 )
 
@@ -59,7 +58,6 @@ include(FetchContent)
 FetchContent_Declare(
     custom_library
     GIT_REPOSITORY https://github.com/AErbsloeh/pico_runtime_library.git
-    #GIT_REPOSITORY https://github.com/Nickskil/pico_runtime_library.git
     GIT_TAG        main
 )
 FetchContent_MakeAvailable(custom_library)
@@ -94,7 +92,7 @@ target_link_libraries(main
     #hal_wifi_udp
      # ---- Include ADC libraries
     #adc_ad4858
-    #adc_ad7779
+    adc_ad7779
     #adc_ads8881
     # ---- Include DAC libraries
     #dac_ad57x4
