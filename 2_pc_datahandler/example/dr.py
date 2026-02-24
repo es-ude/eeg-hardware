@@ -4,7 +4,7 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    path2file = Path("/Users/nickskill/Documents/Masterarbeit_Git/eeg-hardware/4_pc_datahandler")
+    path2file = Path("example")
     reader = EEGDataReader(path=path2file, load_case=0)
     data = reader.get_data()
     print(reader.get_metadata())
