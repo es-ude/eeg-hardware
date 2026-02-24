@@ -1,4 +1,4 @@
-from data_reader import EEGDataReader
+from eeg_api import EEGDataReader
 from pathlib import Path
 import numpy as np
 

@@ -1,5 +1,5 @@
 import unittest
-from data_reader.src_data_reader.data_analysis import analysis_frequency
+from src import analysis_frequency
 from src import TransientData
 import numpy as np
 

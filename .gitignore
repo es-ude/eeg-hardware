@@ -86,3 +86,4 @@ venv.bak/
 
 #Recording files
 *.h5
+2_pc_datahandler/.vscode/settings.json

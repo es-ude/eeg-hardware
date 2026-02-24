@@ -3,7 +3,7 @@ from dataclasses import dataclass
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtCore, QtWidgets
 from pylsl import StreamInlet, resolve_bypred, proc_threadsafe, local_clock
-from collections import deque
+
 
 @dataclass
 class LivePlotterChannelConfig:

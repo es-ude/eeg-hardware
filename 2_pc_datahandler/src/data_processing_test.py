@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from eeg_api.src_eeg_api.data_processing import extract_channel_data, extract_error_flags
+from src import extract_channel_data, extract_error_flags
 
 class DataProcessingTest(unittest.TestCase):
     def setUp(self):

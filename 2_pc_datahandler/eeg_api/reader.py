@@ -1,10 +1,10 @@
 import numpy as np
 from pathlib import Path
 from src import TransientData, TransientMetadata
-from .src_data_reader import post_process_rolling_median, post_process_error_flags, elapsed_time_convert_to_seconds
-from .src_data_reader import plot_transient_data, plot_histogram_timestamps
-from .src_data_reader import analysis_frequency
-from .src_data_reader import load_files, read_h5_file
+from src import post_process_rolling_median, post_process_error_flags, elapsed_time_convert_to_seconds
+from src import plot_transient_data, plot_histogram_timestamps
+from src import analysis_frequency
+from src import load_files, read_h5_file
 
 
 class EEGDataReader:

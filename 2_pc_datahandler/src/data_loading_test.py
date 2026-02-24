@@ -1,13 +1,13 @@
 import unittest
 from unittest.mock import patch
 from pathlib import Path
-from data_reader.src_data_reader.data_loading import load_files, read_h5_file
+from src import load_files, read_h5_file
 
 class DataLoadingTest(unittest.TestCase):
     def setUp(self):
         pass
 
-    @patch('data_reader.src_data_reader.data_loading.Path.glob')
+    @patch('src.data_loading.Path.glob')
     def test_load_files_successfull(self, mock_glob):
         mock_glob.return_value = [Path("file1_data.h5"), Path("file2_data.h5")]
         master_path = Path("/mock/path")
@@ -15,7 +15,7 @@ class DataLoadingTest(unittest.TestCase):
         selected_file = load_files(master_path, 1)
         self.assertEqual(selected_file, Path("file2_data.h5"))
     
-    @patch('data_reader.src_data_reader.data_loading.Path.glob')
+    @patch('src.data_loading.Path.glob')
     def test_load_files_no_files_found(self, mock_glob):
         mock_glob.return_value = []
         master_path = Path("/mock/path")
@@ -25,7 +25,7 @@ class DataLoadingTest(unittest.TestCase):
 
 
     def test_read_h5_file_successful(self):
-        result = read_h5_file(Path("data_reader/src_data_reader/test_data/uinttest_testdata.h5"))
+        result = read_h5_file(Path("src/test_data/uinttest_testdata.h5"))
         self.assertEqual(result[0][:,0].tolist(), [0,1,2,3,4,5,6,7,8,9]) # alerts first channel
         self.assertEqual(result[0][1].tolist(), [1,1,1,1,1,1,1,1]) # alerts second measurement
         self.assertEqual(result[1][:,0].tolist(), [0,1,2,3,4,5,6,7,8,9]) # measurements first channel

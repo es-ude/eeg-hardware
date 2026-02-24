@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from data_reader.src_data_reader.data_post_processing import post_process_rolling_median, post_process_error_flags, elapsed_time_convert_to_seconds
+from src import post_process_rolling_median, post_process_error_flags, elapsed_time_convert_to_seconds
 
 class DataPostProcessingTest(unittest.TestCase):
     def setUp(self):

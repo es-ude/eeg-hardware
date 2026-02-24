@@ -1,14 +1,14 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from pylsl import cf_int64
-from eeg_api.src_eeg_api.lsl_handler import LSLHandler
+from pylsl import cf_int32
+from src import LSLHandler
 
 class TestLSLHandler(unittest.TestCase):
     def setUp(self):
         self._handler = LSLHandler.__new__(LSLHandler)
 
-    @patch ('eeg_api.src_eeg_api.lsl_handler.StreamInfo')
-    @patch ('eeg_api.src_eeg_api.lsl_handler.StreamOutlet')
+    @patch ('src.lsl_handler.StreamInfo')
+    @patch ('src.lsl_handler.StreamOutlet')
     def test_create_lsl_outlet_daq(self, mock_stream_outlet, mock_stream_info):
         self._handler._name = "TestStream"
         self._handler._sampling_rate = 250
@@ -23,6 +23,6 @@ class TestLSLHandler(unittest.TestCase):
             type='custom_daq',
             channel_count=17,
             nominal_srate=250,
-            channel_format=cf_int64,
+            channel_format=cf_int32,
             source_id="TestStream_uid"
         )

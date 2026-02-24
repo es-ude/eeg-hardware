@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock, PropertyMock
 from eeg_api.eeghw_control import ApiEEGDeviceController, characteristics_dataframes
+from src.poti import PotiConfig
 import queue
 import serial
 
@@ -89,9 +90,10 @@ class TestApiEEGDeviceController(unittest.TestCase):
         self.controller._recording_name = "test_recording"
         self.controller._metadata = MagicMock()
         self.controller._eeg_device_config = MagicMock()
+        self.controller._poti_config = PotiConfig(gain=2, calculated_resistor_value=1000, poti_value=128, actual_resistor_value=1000, actual_gain_value=2)
 
         self.controller._init_h5_file_writer()
-        mock_h5handler.assert_called_once_with(recording_name="test_recording", metadata=self.controller._metadata, eeg_device_config=self.controller._eeg_device_config)
+        mock_h5handler.assert_called_once_with(recording_name="test_recording", metadata=self.controller._metadata, eeg_device_config=self.controller._eeg_device_config, poti_values=self.controller._poti_config)
 
         
 

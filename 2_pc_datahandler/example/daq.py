@@ -1,7 +1,7 @@
 import time
-from eeg_api import eeghw_control
+from eeg_api import ApiEEGDeviceController
 from src import EEGDeviceConfig, EEGDeviceMetadata
-from eeg_api.src_eeg_api import LivePlotterChannelConfig, translation_func_adc, translation_func_dac
+from src import LivePlotterChannelConfig, translation_func_adc, translation_func_dac
 
 # General configuration for the EEG device
 config = EEGDeviceConfig(
@@ -38,11 +38,11 @@ config_plotter1 = [
 
 
 if __name__ == "__main__":
-    controller = eeghw_control.ApiEEGDeviceController(
+    controller = ApiEEGDeviceController(
         config=config,
         metadata=metadata,
         config_live_plotter=config_plotter0
     )
     controller.start_daq()
-    #time.sleep(config.measure_duration)
-    #controller.stop_daq()
+    time.sleep(config.measure_duration)
+    controller.stop_daq()
