@@ -17,7 +17,7 @@
 
 #include "poti/AD5142A/ad5142a.h"
 
-#include "sens/ad7779.h"
+#include "adc/ad7779/ad7779.h"
 
 #define FIRMWARE_VERSION_MAJOR 2
 #define FIRMWARE_VERSION_MINOR 1
