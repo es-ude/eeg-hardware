@@ -1,89 +1,20 @@
-#KiCad
-*.000
-*.bak
-*.bck
-*.kicad_pcb-bak
-*.kicad_sch-bak
-*-backups
-*.kicad_prl
-*.sch-bak
-*~
-_autosave-*
-*.tmp
-*-save.pro
-*-save.kicad_pcb
-fp-info-cache
-*.net
-*.dsn
-*.ses
-*.xml
-*.csv
-rescue-backup/
-*.tsv
-bom/
-out/
+# Artifacts from Hardware Design
+**/.DS_Store
+**/*-backups
+**/*.lck
 
+2_charac/version_*/*
 
-#macOS
-*.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-*.icloud
+# Artifacts from Firmware Design
+**/build
+**/.vscode
 
-
-### PyCharm+all template
-**/.idea
-**/.idea_modules
-**.DS_Store
-# Byte-compiled / optimized / DLL files
-**/__pycache__
-*.py[cod]
-*$py.class
-# C extensions
-*.so
-
-
-### Python ###
-__pycache__/
-*.py[cod]
-*$py.class
-.Python
-build/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-MANIFEST
-__pypackages__/
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-
-#VisualStudioCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-.history/
-
-
-#Recording files
-*.h5
-2_pc_datahandler/.vscode/settings.json
+# Figures/data from charac
+2_charac/**/*.eps
+2_charac/**/*.svg
+2_charac/**/*.pdf
+2_charac/**/*.png
+2_charac/**/*.bin
+2_charac/**/*.txt
+2_charac/**/*.h5
+2_charac/**/*.csv

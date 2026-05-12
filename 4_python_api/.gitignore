@@ -1,0 +1,12 @@
+# Python artefacts
+**/__pycache__
+**/.idea
+
+# Project artefacts
+**/dist
+**/temp
+**/venv
+**/.venv
+**/.python-version
+**/*.lock
+**/*_data.h5

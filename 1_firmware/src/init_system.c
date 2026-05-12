@@ -82,10 +82,10 @@ bool init_potis(){
         if(!ad5142a_init(&poti[i], poti_adr[i])){
             init_done = false;
         }
-        if(!ad5142a_define_level(&poti[i], 0, 255)){ //Set default poti value to the lowest Resitor value
+        if(!ad5142a_define_level(&poti[i], 0, 0)){ //Set default poti value to the lowest Resitor value
             init_done = false;
         }
-        if (!ad5142a_define_level(&poti[i], 1, 255)){
+        if (!ad5142a_define_level(&poti[i], 1, 0)){
             init_done = false;
         }
     }
